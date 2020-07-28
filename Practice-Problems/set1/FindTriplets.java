@@ -1,16 +1,14 @@
-import java.util.Scanner;
+package set1;
 
 public class FindTriplets {
 
 	public static void main(String[] args) {
 		System.out.print("Enter the size of array : ");
-		Scanner scan = new Scanner(System.in);
-		int[] arr = new int[scan.nextInt()];
+		int[] arr = new int[Helper.getPosInt()];
 		System.out.println("Enter elements : ");
 		for (int i = 0; i < arr.length; i++) {
-			arr[i] = scan.nextInt();
+			arr[i] = Helper.getInt();
 		}
-		scan.close();
 		printTriplets(arr);
 	}
 
@@ -21,7 +19,8 @@ public class FindTriplets {
 				int key2 = arr[j];
 				int sum = key1 + key2;
 				for (int k = j + 1; k < arr.length; k++) {
-					if (arr[k] == sum) System.out.println("<"+key1+","+key2+","+sum+">");
+					if (arr[k] == sum)
+						System.out.println("<" + key1 + "," + key2 + "," + sum + ">");
 				}
 			}
 		}
