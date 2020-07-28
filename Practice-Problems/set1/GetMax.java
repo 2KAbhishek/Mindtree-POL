@@ -1,15 +1,13 @@
-import java.util.Scanner;
+package set1;
 
 public class GetMax {
 
 	public static void main(String[] args) {
-		Scanner scan = new Scanner(System.in);
 		System.out.print("Entere three numbers : ");
-		int a = scan.nextInt();
-		int b = scan.nextInt();
-		int c = scan.nextInt();
-		scan.close();
-		int max = getMax(a,b,c);
+		int a = Helper.getInt();
+		int b = Helper.getInt();
+		int c = Helper.getInt();
+		int max = getMax(a, b, c);
 		System.out.println("Biggest : " + max);
 	}
 
@@ -17,4 +15,5 @@ public class GetMax {
 		int res = a > b ? a : b;
 		return res > c ? res : c;
 	}
+
 }
