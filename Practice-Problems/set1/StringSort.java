@@ -1,3 +1,5 @@
+package set1;
+
 import java.util.Scanner;
 
 public class StringSort {
@@ -14,30 +16,32 @@ public class StringSort {
 		System.out.println("Which sort? [Insertion/Bubble] : ");
 		String which = scan.nextLine();
 		scan.close();
-		
+
 		if (which.equalsIgnoreCase("Bubble")) {
 			arr = bubbleSort(arr);
 		} else {
-			arr = insertionSort(arr);			
+			arr = insertionSort(arr);
 		}
 		System.out.println("After sorting : ");
-		for (String x: arr) System.out.print(x + ", ");
+		for (String x : arr)
+			System.out.print(x + ", ");
 	}
 
 	private static String[] bubbleSort(String[] arr) {
 		int n = arr.length;
 		boolean swapHappened;
-		for (int i = 0; i < n-1; i++) {
+		for (int i = 0; i < n - 1; i++) {
 			swapHappened = false;
-			for (int j = 0; j < n-i-1; j++) {
-				if (arr[j].compareTo(arr[j+1]) > 0) {
+			for (int j = 0; j < n - i - 1; j++) {
+				if (arr[j].compareTo(arr[j + 1]) > 0) {
 					String temp = arr[j];
-					arr[j] = arr[j+1];
-					arr[j+1] = temp;
+					arr[j] = arr[j + 1];
+					arr[j + 1] = temp;
 					swapHappened = true;
 				}
 			}
-			if (!swapHappened) break;
+			if (!swapHappened)
+				break;
 		}
 		return arr;
 	}
@@ -48,7 +52,7 @@ public class StringSort {
 			String curr = arr[i];
 			int j = i - 1;
 			while (j >= 0 && arr[j].compareTo(curr) > 0) {
-				arr[j+1] = arr[j];
+				arr[j + 1] = arr[j];
 				j = j - 1;
 			}
 			arr[j + 1] = curr;
