@@ -1,27 +1,35 @@
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
+package set1;
 
 public class PrimeInRange {
 
 	public static void main(String[] args) {
-		Scanner scan = new Scanner(System.in);
 		System.out.println("Enter range to check : ");
-		int low = scan.nextInt();
-		int high = scan.nextInt();
-		scan.close();
-		List<Integer> primes = primeList(low, high);
-		for (int prime : primes) System.out.print(prime + ", ");
+		int low = Helper.getInt();
+		int high = Helper.getInt();
+		
+		if (low > high) {
+			System.out.println("(empty list)");
+		}
+		
+		int[] primes = primeList(low, high);
+		for (int prime : primes)
+			System.out.print(prime + ", ");
 	}
 
-	public static List<Integer> primeList(int low, int high) {
-		List<Integer> primes = new LinkedList<>();
+	public static int[] primeList(int low, int high) {
+		int[] temp = new int[100];
+		int count = 0;
 		for (int num = low > 2 ? low : 2; num <= high; num++) {
 			if (isPrime(num)) {
-				primes.add(num);
+				temp[count++] = num;
 			}
 		}
-		return primes;
+		int[] out = new int[count];
+
+		for (int i = 0; i < out.length; i++) {
+			out[i] = temp[i];
+		}
+		return out;
 	}
 
 	private static boolean isPrime(long num) {
