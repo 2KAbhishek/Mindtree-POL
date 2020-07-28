@@ -1,22 +1,20 @@
-import java.util.Scanner;
+package set1;
 
 public class Prime {
 
 	public static void main(String[] args) {
-		Scanner scan = new Scanner(System.in);
 		System.out.print("Enter number to check: ");
-		long num = scan.nextLong();
-		scan.close();
+		long num = Helper.getPosLong();
 		if (isPrime(num)) {
-			System.out.println(num + " is a prime number.");
+			System.out.println("true");
 		} else {
-			System.out.println(num + " is not a prime number.");
+			System.out.println("false");
 		}
 	}
 
 	private static boolean isPrime(long num) {
 		boolean isPrime = true;
-		for (long i = 2; i <= Math.sqrt(num); i++) {
+		for (long i = 2; i <= num; i++) {
 			if (num % i == 0) {
 				isPrime = false;
 				break;
