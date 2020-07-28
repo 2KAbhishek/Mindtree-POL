@@ -1,18 +1,18 @@
-import java.util.Scanner;
+package set1;
 
 public class ArraySum {
 
 	public static void main(String[] args) {
-		Scanner scan = new Scanner(System.in);
 		System.out.print("Enter no. of elements : ");
-		int size = scan.nextInt();
-		int [] arr = new int[size];
+		int size = Helper.getPosInt();
+		int[] arr = new int[size];
 		int result = 0;
+
+		System.out.println("Enter " + size + " elements :");
 		for (int i = 0; i < size; i++) {
-			arr[i] = scan.nextInt();
+			arr[i] = Helper.getInt();
 		}
-		scan.close();
-		
+
 		System.out.println("Entered array : ");
 		for (int n : arr) {
 			System.out.print(n + " ");
