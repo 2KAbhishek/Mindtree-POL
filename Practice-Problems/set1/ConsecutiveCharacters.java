@@ -1,5 +1,5 @@
-import java.util.HashMap;
-import java.util.Map;
+package set1;
+
 import java.util.Scanner;
 
 public class ConsecutiveCharacters {
@@ -9,31 +9,59 @@ public class ConsecutiveCharacters {
 		System.out.println("Enter sentence : ");
 		String sen = scan.nextLine();
 		scan.close();
-		printConsecutiveCharacters(sen);
+		char ch = ' ';
+		String result = " ";
+
+		for (int i = 0; i < sen.length(); i++) {
+			if (sen.charAt(i) >= 'a' && sen.charAt(i) <= 'z')
+				ch = (char) (sen.charAt(i) - 32);
+			else
+				ch = sen.charAt(i);
+			result += ch;
+		}
+
+		String[] com = new String[result.length()];
+		int index = 0;
+
+		for (int i = 0; i < result.length() - 1; i++) {
+			int first = (int) result.charAt(i);
+			int second = (int) result.charAt(i + 1);
+
+			if (second - first == 1) {
+				String test = sub(i, result);
+				if (!partOf(test, com)) {
+					com[index] = test;
+					index++;
+					int count = 0;
+
+					for (int j = 0; j < result.length() - 1; j++) {
+						if (test.compareTo(sub(j, result)) == 0)
+							count++;
+					}
+
+					if (count > 0)
+						System.out.println(test + " " + count);
+				}
+			}
+		}
+
 	}
 
-	private static void printConsecutiveCharacters(String sen) {
-		char str[] = new char[sen.length()]; 
-		for (int i = 0; i < str.length; i++)
-			str[i] = sen.charAt(i);
-		
-		HashMap<String, Integer> counts = new HashMap<>();
-		
-        for (int i = 1; i < str.length; i++) { 
-            if (str[i] == str[i - 1] + 1)  {
-            	str[i-1] = (char) (Character.isUpperCase(str[i-1])? str[i-i] : str[i-1] - 32);
-            	str[i] = (char) (Character.isUpperCase(str[i])? str[i] : str[i] - 32);
-                String temp = str[i-1] +""+ str[i];
-                
-                if (counts.containsKey(temp)) counts.put(temp, counts.get(temp)+1);
-                else counts.put(temp,1);
-            }
-        }
-        for(Map.Entry<String, Integer> entry : counts.entrySet()) {
-            String key = entry.getKey();
-            Integer value = entry.getValue();
-            System.out.println(key + " " + value);
-        }
+	public static String sub(int i, String str) {
+		String s = "" + str.charAt(i) + str.charAt(i + 1);
+		return s;
 	}
 
+	public static boolean partOf(String str, String[] strArr) {
+		boolean flag = false;
+		try {
+			for (int i = 0; i < strArr.length; i++) {
+				if (str.compareTo(strArr[i]) == 0)
+					flag = true;
+			}
+		} catch (Exception e) {
+		}
+
+		return flag;
+	}
 }
