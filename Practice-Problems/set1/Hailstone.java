@@ -1,11 +1,10 @@
-import java.util.Scanner;
+package set1;
 
 public class Hailstone {
 
 	public static void main(String[] args) {
-		Scanner scan = new Scanner(System.in);
-		int num = scan.nextInt();
-		scan.close();
+		int num = Helper.getPosInt();
+
 		int steps;
 		for (steps = 0; num != 1; steps++) {
 			if (num % 2 == 0) {
