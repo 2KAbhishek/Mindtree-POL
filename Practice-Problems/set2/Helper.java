@@ -138,6 +138,15 @@ public class Helper {
 		return found;
 	}
 
+	public boolean found(String str, char c) {
+		for (int i = 0; i < str.length(); i++) {
+			if (c == str.charAt(i)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	public boolean isUpperCase(char c) {
 		if ((c >= 'A') && (c <= 'Z'))
 			return true;
@@ -154,6 +163,25 @@ public class Helper {
 		if (((c >= 'A') && (c <= 'Z')) || ((c >= 'a') && (c <= 'z')))
 			return true;
 		return false;
+	}
+
+	public String lowerCase(String str) {
+		String temp = "";
+		for (int i = 0; i < str.length(); i++) {
+			char c = str.charAt(i);
+			if (isUpperCase(c)) {
+				c = (char) (c + 32);
+			}
+			temp += c;
+		}
+		return temp;
+	}
+
+	public static int pow(int num, int e) {
+		if (e == 0)
+			return 1;
+		else
+			return (num * pow(num, e - 1));
 	}
 
 }
