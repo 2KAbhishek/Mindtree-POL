@@ -12,7 +12,7 @@ public class Exercise49 {
 		int a[] = new int[n];
 		int x[] = new int[n];
 
-		System.out.print("Enter the elements of set: ");
+		System.out.println("Enter the elements of set: ");
 		for (int i = 0; i < n; i++)
 			a[i] = h.getPosInt();
 
@@ -20,7 +20,7 @@ public class Exercise49 {
 		d = h.getPosInt();
 
 		if (d > 0) {
-			for (int i = 0; i < Math.pow(2, n) - 1; i++) {
+			for (int i = 0; i < h.pow(2, n) - 1; i++) {
 				subset(i, n, x);
 				sum = 0;
 				for (j = 0; j < n; j++)
