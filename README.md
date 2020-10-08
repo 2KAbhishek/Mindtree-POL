@@ -13,3 +13,7 @@ Code written during Mindtree Pre Orchard Learning.
 Contains solutions to practice problems.
 
 Shared for my own future reference and if anyone needs help with a certain problem.
+
+Special features:
+
+- Minimal usage of built-in methods and classes.
