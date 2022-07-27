@@ -1,6 +1,6 @@
 <div align = "center">
 
-<h1><a href="https://2kabhishek.github.io/Mindtree-POL">BareMinimum</a></h1>
+<h1><a href="https://2kabhishek.github.io/Mindtree-POL">Mindtree-POL</a></h1>
 
 <a href="https://github.com/2KAbhishek/Mindtree-POL/blob/main/LICENSE">
 <img alt="License" src="https://img.shields.io/github/license/2kabhishek/Mindtree-POL?style=flat&color=eee&label="> </a>
